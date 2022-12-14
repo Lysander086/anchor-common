@@ -8,6 +8,6 @@ dependencies{
 
 object VeriDependency {
     object Versions{
-
+        
     }
 }
