@@ -3,10 +3,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	`kotlin-dsl`
 	`java-library`
-	id("org.springframework.boot") version "3.0.0"
-	id("io.spring.dependency-management") version "1.1.0"
-	kotlin("jvm") version "1.6.21"
-	kotlin("plugin.spring") version "1.6.21"
+	id("org.springframework.boot") version Dependencies_gradle.Versions.springboot
+	id("io.spring.dependency-management") version Dependencies_gradle.Versions.springDependencyManagement
+	// https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
+	kotlin("jvm")
+	kotlin("plugin.spring") version Dependencies_gradle.Versions.springPlugin
 }
 
 group = "org.verita"
