@@ -1,1 +1,1 @@
-rootProject.name = "verita-common "
+rootProject.name = "verita-common"
