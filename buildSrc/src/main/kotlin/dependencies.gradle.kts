@@ -19,5 +19,9 @@ object Versions {
         const val jvmTarget = "17"
         val version = JavaVersion.VERSION_17
     }
+
+    object Kotlin {
+        const val version = "1.6.21"
+    }
 }
 
