@@ -6,10 +6,7 @@ plugins {
 dependencies {
 }
 
-
-
-
-object Versions {
+object VersionManagement {
     const val springboot = "3.0.0"
     const val springDependencyManagement = "1.1.0"
     const val springPlugin = "1.6.21"

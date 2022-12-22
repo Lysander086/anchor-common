@@ -1,7 +1,7 @@
 
 plugins {
     kotlin("jvm")
-    kotlin("plugin.spring") version Dependencies_gradle.Versions.springPlugin
+    kotlin("plugin.spring") version Dependencies_gradle.VersionManagement.springPlugin
 }
 
 group = "org.verita"
