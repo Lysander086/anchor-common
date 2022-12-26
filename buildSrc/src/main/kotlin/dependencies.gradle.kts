@@ -1,9 +1,5 @@
 plugins {
-    `java-library`
     kotlin("jvm")
-}
-
-dependencies {
 }
 
 object VersionManagement {

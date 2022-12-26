@@ -1,7 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    `java-library` // TODO Lysander 2022: what is the effect of this
     kotlin("jvm")
     id("org.springframework.boot") version Dependencies_gradle.VersionManagement.springboot
     id("io.spring.dependency-management") version Dependencies_gradle.VersionManagement.springDependencyManagement
@@ -14,7 +13,7 @@ plugins {
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    api("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter") // might remove TODO Lysander 2022: what is the effect?
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
