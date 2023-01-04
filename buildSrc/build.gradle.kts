@@ -12,9 +12,6 @@ repositories {
 dependencies {
     // define the kotlin jvm version also
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21")
-
-    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 delz
-    implementation("org.apache.commons:commons-lang3:3.12.0")
 }
 
 
