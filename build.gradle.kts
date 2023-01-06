@@ -10,3 +10,8 @@ allprojects {
         mavenCentral()
     }
 }
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
