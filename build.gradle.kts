@@ -1,6 +1,6 @@
-
 plugins {
     kotlin("jvm")
+    id("kotest-jvm-conventions")
 }
 
 allprojects {
@@ -9,9 +9,4 @@ allprojects {
     repositories {
         mavenCentral()
     }
-}
-
-java {
-    withJavadocJar()
-    withSourcesJar()
 }
