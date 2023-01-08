@@ -1,6 +1,4 @@
-plugins {
-    kotlin("jvm")
-}
+import org.gradle.api.JavaVersion
 
 object VersionManagement {
     const val springboot = "3.0.0"

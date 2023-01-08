@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
-    id("kotest-jvm-conventions")
+    id("jvm-conventions")
+    id("publishing-conventions")
 }
 
 allprojects {
@@ -9,4 +10,9 @@ allprojects {
     repositories {
         mavenCentral()
     }
+}
+
+subprojects {
+    apply(plugin = "jvm-conventions")
+    apply(plugin = "publishing-conventions")
 }
