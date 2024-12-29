@@ -14,8 +14,8 @@ java {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "org.verita"
-            artifactId = "verita-common"
+            groupId = "org.anchor"
+            artifactId = "anchor-common"
             version = "0.0.1-SNAPSHOT"
             from(components["java"])
         }

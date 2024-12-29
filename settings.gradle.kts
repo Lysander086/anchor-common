@@ -1,2 +1,2 @@
-rootProject.name = "verita-common"
+rootProject.name = "anchor-common"
 include("dao-support")

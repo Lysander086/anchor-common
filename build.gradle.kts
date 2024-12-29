@@ -5,7 +5,7 @@ plugins {
 }
 
 allprojects {
-    group = "org.verita"
+    group = "org.anchor"
     version = "0.0.1-SNAPSHOT"
     repositories {
         mavenCentral()

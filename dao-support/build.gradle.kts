@@ -25,10 +25,8 @@ tasks.getByName<Jar>("jar") {
 
 dependencies {
     implementation(kotlin("reflect"))
-    implementation(kotlin("stdlib-jdk8"))
     api("org.springframework.boot:spring-boot-starter-data-jpa")
     //  Spring Boot provides a number of starters that allow us to add jars in the classpath. Spring Boot built-in starters make development easier and rapid. Spring Boot Starters are the dependency descriptors.
-    implementation("org.springframework.boot:spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

@@ -1,4 +1,4 @@
-package org.verita.dao
+package org.anchor.dao
 
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedBy

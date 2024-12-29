@@ -1,4 +1,4 @@
-package org.verita.dao
+package org.anchor.dao
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import java.io.Serializable
 
 @Suppress("unused")
-open class ServiceSupport<ID : Serializable, M : BaseEntity<ID>>
+open class BaseService<ID : Serializable, M : BaseEntity<ID>>
     (private val repositorySupport: JpaRepository<M, ID>) {
 
     fun save(m: M): M = this.repositorySupport.save(m)
