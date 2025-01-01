@@ -11,6 +11,7 @@ plugins {
     // kotlin-jpa is wrapped on top of no-arg. The plugin specifies @Entity, @Embeddable, and @MappedSuperclass no-arg annotations automatically.
     id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
     id("publishing-conventions")
+    idea
 }
 
 
@@ -26,8 +27,13 @@ tasks.getByName<Jar>("jar") {
 dependencies {
     implementation(kotlin("reflect"))
     api("org.springframework.boot:spring-boot-starter-data-jpa")
-    //  Spring Boot provides a number of starters that allow us to add jars in the classpath. Spring Boot built-in starters make development easier and rapid. Spring Boot Starters are the dependency descriptors.
+    implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("com.h2database:h2:2.3.232")
+//    generalize to parent module delz
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+
 }
 
 repositories {

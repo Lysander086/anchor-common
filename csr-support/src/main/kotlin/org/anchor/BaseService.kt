@@ -1,4 +1,4 @@
-package org.anchor.dao
+package org.anchor
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable

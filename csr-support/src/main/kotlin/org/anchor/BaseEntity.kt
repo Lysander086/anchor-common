@@ -1,4 +1,4 @@
-package org.anchor.dao
+package org.anchor
 
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedBy
@@ -6,7 +6,6 @@ import org.springframework.data.annotation.CreatedBy
 import java.io.Serializable
 
 
-@Suppress("unused")
 @MappedSuperclass
 open class BaseEntity<ID : Serializable>(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

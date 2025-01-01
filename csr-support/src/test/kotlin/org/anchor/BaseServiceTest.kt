@@ -1,13 +1,10 @@
-package org.anchor.dao
+package org.anchor
 
-import org.anchor.dao.BaseService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.*
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.domain.PageImpl
-import org.springframework.data.domain.Pageable
 import java.util.*
 
 class BaseServiceTest {
@@ -17,9 +14,11 @@ class BaseServiceTest {
 
     @BeforeEach
     fun setup() {
-        repository = mock(JpaRepository::class.java) as JpaRepository<*, *>
+        @Suppress("UNCHECKED_CAST") // is there a better way?
+        repository = mock(JpaRepository::class.java) as JpaRepository<BaseEntity<Long>, Long>
         baseService = BaseService(repository)
     }
+
 
     @Test
     fun `should save entity`() {
