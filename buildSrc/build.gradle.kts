@@ -1,17 +1,21 @@
 plugins {
-    // allow us to use kotlin for gradle build scripts
     `kotlin-dsl`
-    kotlin("jvm") version "1.6.21"
+    id("org.jetbrains.kotlin.jvm") version "2.1.0"
 }
 
 repositories {
-    mavenCentral()
+    mavenLocal()
     gradlePluginPortal()
+    mavenCentral()
+    google()
 }
 
 dependencies {
-    // define the kotlin jvm version also
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
+    implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.9.0")
 }
 
 
+kotlin {
+    jvmToolchain(17)
+}

@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-
 // TODO Lysander 2022: what is this for?
 tasks.withType<Test>().configureEach {
    useJUnitPlatform()
@@ -16,6 +15,7 @@ tasks.withType<KotlinCompile>().configureEach {
 
 repositories {
    mavenLocal()
+   gradlePluginPortal()
    mavenCentral()
-   gradlePluginPortal() // tvOS builds need to be able to fetch a kotlin gradle plugin
+   google()
 }

@@ -3,7 +3,7 @@ import org.gradle.api.JavaVersion
 object VersionManagement {
     const val springboot = "3.0.0"
     const val springDependencyManagement = "1.1.0"
-    const val springPlugin = "1.6.21"
+    const val springPlugin = "1.8.0"
 
 
     object Java {
@@ -12,7 +12,7 @@ object VersionManagement {
     }
 
     object Kotlin {
-        const val version = "1.6.21"
+        const val version = "2.1.0"
     }
 }
 

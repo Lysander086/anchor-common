@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    // specify that we use kotlin instead of java to develop
-    kotlin("jvm")
     id("org.springframework.boot") version VersionManagement.springboot
     // help manage the version of the spring-related dependencies
     id("io.spring.dependency-management") version VersionManagement.springDependencyManagement
@@ -12,6 +11,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
     id("publishing-conventions")
     idea
+    kotlin("jvm")
 }
 
 
@@ -30,24 +30,20 @@ dependencies {
     implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.h2database:h2:2.3.232")
-//    generalize to parent module delz
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.0")
-
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 repositories {
+    mavenLocal()
+    gradlePluginPortal()
     mavenCentral()
+    google()
 }
 
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }
