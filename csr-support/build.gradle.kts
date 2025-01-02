@@ -1,8 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    // specify that we use kotlin instead of java to develop
-    kotlin("jvm")
     id("org.springframework.boot") version VersionManagement.springboot
     // help manage the version of the spring-related dependencies
     id("io.spring.dependency-management") version VersionManagement.springDependencyManagement
@@ -34,7 +32,10 @@ dependencies {
 }
 
 repositories {
+    mavenLocal()
+    gradlePluginPortal()
     mavenCentral()
+    google()
 }
 
 

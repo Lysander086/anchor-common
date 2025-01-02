@@ -1,6 +1,6 @@
 
 plugins {
-    kotlin("jvm")
+    id("org.jetbrains.kotlin.jvm")
     id("jvm-conventions")
     id("publishing-conventions")
     id("io.gitlab.arturbosch.detekt") version "1.21.0"
@@ -10,7 +10,10 @@ allprojects {
     group = "org.anchor"
     version = "0.0.1-SNAPSHOT"
     repositories {
+        mavenLocal()
+        gradlePluginPortal()
         mavenCentral()
+        google()
     }
 }
 subprojects {
