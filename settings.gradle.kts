@@ -1,2 +1,3 @@
 rootProject.name = "anchor-common"
-include("csr-support")
+// controller, service, repository support
+include("csr-support") 

@@ -30,10 +30,7 @@ dependencies {
     implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.h2database:h2:2.3.232")
-//    generalize to parent module delz
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.0")
-
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 }
 
 repositories {
@@ -44,7 +41,7 @@ repositories {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+        jvmTarget =  VersionManagement.Java.jvmTarget
     }
 }
 

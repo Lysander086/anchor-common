@@ -1,3 +1,4 @@
+
 plugins {
     kotlin("jvm")
     id("jvm-conventions")
@@ -12,14 +13,16 @@ allprojects {
         mavenCentral()
     }
 }
-
 subprojects {
     apply(plugin = "jvm-conventions")
     apply(plugin = "publishing-conventions")
 
+    tasks.register<Wrapper>("wrapper") {
+        gradleVersion = GradleVersion.current().version
+    }
 
-}
-
-dependencies{
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
+    dependencies{
+        compileOnly("org.projectlombok:lombok:1.18.36")
+        testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
+    }
 }
