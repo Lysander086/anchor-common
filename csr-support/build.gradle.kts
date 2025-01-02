@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("org.springframework.boot") version VersionManagement.springboot
@@ -10,6 +11,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
     id("publishing-conventions")
     idea
+    kotlin("jvm") version "2.1.0"
 }
 
 
@@ -29,6 +31,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.h2database:h2:2.3.232")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 repositories {
@@ -48,4 +51,12 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.compilerOptions {
+    jvmTarget.set(JvmTarget.JVM_1_8)
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.compilerOptions {
+    jvmTarget.set(JvmTarget.JVM_1_8)
 }

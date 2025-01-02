@@ -1,4 +1,3 @@
-
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("jvm-conventions")
@@ -24,8 +23,9 @@ subprojects {
         gradleVersion = GradleVersion.current().version
     }
 
-    dependencies{
+    dependencies {
         compileOnly("org.projectlombok:lombok:1.18.36")
-        testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
+        testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
     }
+
 }
