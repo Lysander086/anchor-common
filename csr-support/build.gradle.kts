@@ -11,7 +11,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
     id("publishing-conventions")
     idea
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm")
 }
 
 
@@ -43,20 +43,7 @@ repositories {
 
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget =  VersionManagement.Java.jvmTarget
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.compilerOptions {
-    jvmTarget.set(JvmTarget.JVM_1_8)
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.compilerOptions {
-    jvmTarget.set(JvmTarget.JVM_1_8)
 }

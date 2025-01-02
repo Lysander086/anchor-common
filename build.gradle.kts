@@ -2,7 +2,9 @@ plugins {
     id("org.jetbrains.kotlin.jvm")
     id("jvm-conventions")
     id("publishing-conventions")
-    id("io.gitlab.arturbosch.detekt") version "1.21.0"
+    // apply the detekt plugin later delz
+//    id("io.gitlab.arturbosch.detekt") version "1.21.0"
+
 }
 
 allprojects {
@@ -25,7 +27,8 @@ subprojects {
 
     dependencies {
         compileOnly("org.projectlombok:lombok:1.18.36")
-        testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+        testImplementation("org.junit:junit-bom:5.7.2")
+        testImplementation("org.junit.jupiter:junit-jupiter-api")
     }
 
 }
