@@ -25,6 +25,9 @@ tasks.getByName<Jar>("jar") {
 }
 
 dependencies {
+    // delz
+    compileOnly("org.projectlombok:lombok:1.18.36")
+
     implementation(kotlin("reflect"))
     api("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
@@ -32,6 +35,8 @@ dependencies {
     testImplementation("com.h2database:h2:2.3.232")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     implementation(kotlin("stdlib-jdk8"))
+
+    implementation("org.hibernate:hibernate-core:6.1.5.Final")
 }
 
 repositories {

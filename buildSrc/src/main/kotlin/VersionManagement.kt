@@ -12,7 +12,7 @@ object VersionManagement {
     }
 
     object Kotlin {
-        const val version = "2.1.0"
+        const val version = "2.0.20"
     }
 }
 

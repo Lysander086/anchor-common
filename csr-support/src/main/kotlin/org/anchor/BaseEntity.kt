@@ -5,34 +5,29 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.MappedSuperclass
 import jakarta.persistence.Version
-import lombok.EqualsAndHashCode
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import org.springframework.data.domain.Persistable
-import java.io.Serializable
 import java.time.Instant
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 @MappedSuperclass
-@EqualsAndHashCode
-abstract class BaseEntity<ID : Serializable> : Persistable<ID> {
+abstract class BaseEntity<Long> : Persistable<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private var id: ID? = null
+    private var id: Long? = null
+
+    override fun getId(): Long? = id
 
     @Version
-    private val version: ID? = null
+    private val version: Long? = null
 
     @field:CreationTimestamp
     val createdAt: Instant? = null
 
     @field:UpdateTimestamp
     val updatedAt: Instant? = null
-
-    override fun getId(): ID? {
-        return id
-    }
 
     override fun isNew(): Boolean {
         return version == null
