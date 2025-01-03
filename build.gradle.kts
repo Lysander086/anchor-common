@@ -1,36 +1,33 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-	`kotlin-dsl`
-	`java-library`
-	id("org.springframework.boot") version "3.0.0"
-	id("io.spring.dependency-management") version "1.1.0"
-	kotlin("jvm") version "1.6.21"
-	kotlin("plugin.spring") version "1.6.21"
+    id("org.jetbrains.kotlin.jvm")
+    id("jvm-conventions")
+    id("publishing-conventions")
+//    / delz add detekt later
+//    id("io.gitlab.arturbosch.detekt") version "1.21.0"
 }
 
-group = "org.verita"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_17
-
-repositories {
-	mavenCentral()
+allprojects {
+    group = "org.anchor"
+    version = "0.0.1-SNAPSHOT"
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
 }
+subprojects {
+    apply(plugin = "jvm-conventions")
+    apply(plugin = "publishing-conventions")
 
-dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
+    tasks.register<Wrapper>("wrapper") {
+        gradleVersion = GradleVersion.current().version
+    }
 
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "17"
-	}
-}
+    dependencies {
+        compileOnly("org.projectlombok:lombok:1.18.36")
+        testImplementation("org.junit:junit-bom:5.7.2")
+        testImplementation("org.junit.jupiter:junit-jupiter-api")
+    }
 
-tasks.withType<Test> {
-	useJUnitPlatform()
 }
