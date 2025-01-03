@@ -2,9 +2,8 @@ plugins {
     id("org.jetbrains.kotlin.jvm")
     id("jvm-conventions")
     id("publishing-conventions")
-    // apply the detekt plugin later delz
+//    / delz add detekt later
 //    id("io.gitlab.arturbosch.detekt") version "1.21.0"
-
 }
 
 allprojects {
