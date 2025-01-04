@@ -52,3 +52,5 @@ tasks.withType<KotlinCompile> {
         jvmTarget.set(JvmTarget.JVM_17)
     }
 }
+
+tasks.register("prepareKotlinBuildScriptModel"){}
