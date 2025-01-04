@@ -37,9 +37,3 @@ subprojects {
         testImplementation("org.junit.jupiter:junit-jupiter-api")
     }
 }
-
-//tasks.register("prepareKotlinBuildScriptModel") {}
-
-//tasks.register<Wrapper>("wrapper") {
-//    gradleVersion = GradleVersion.current().version
-//}
