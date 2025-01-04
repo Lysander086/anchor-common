@@ -3,9 +3,6 @@ plugins {
     `maven-publish`
 }
 
-val publications: PublicationContainer = (extensions.getByName("publishing") as PublishingExtension).publications
-
-
 java {
     withJavadocJar()
     withSourcesJar()

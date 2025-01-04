@@ -15,7 +15,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.9.0")
 }
 
-
 kotlin {
     jvmToolchain(17)
 }
