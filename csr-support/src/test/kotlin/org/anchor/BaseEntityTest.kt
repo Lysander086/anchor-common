@@ -12,7 +12,6 @@ class BaseEntityTest {
         val baseEntity = TestEntity("test" )
 
         // Assert
-        assertEquals("test", baseEntity.value)
-        println("test complete")
+        assertEquals("incorrect value", baseEntity.value)
     }
 }
