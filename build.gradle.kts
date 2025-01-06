@@ -2,17 +2,16 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm"
+    id("org.jetbrains.kotlin.jvm")
+    `publishing-conventions`
 }
 
 allprojects {
-    group = "org.anchor"
-    version = "0.0.1-SNAPSHOT"
-apply(plugin = "publishing-conventions")
+
     repositories {
         mavenLocal()
-        gradlePluginPortal()
         mavenCentral()
+        gradlePluginPortal()
         google()
     }
 
@@ -28,7 +27,8 @@ apply(plugin = "publishing-conventions")
 }
 
 subprojects {
-    apply(plugin = "java")
+    apply(plugin = "publishing-conventions")
+
     dependencies {
         compileOnly("org.projectlombok:lombok:1.18.36")
         testImplementation("org.junit:junit-bom:5.7.2")
@@ -38,4 +38,15 @@ subprojects {
 
 tasks.named("build") {
     finalizedBy("publishToMavenLocal")
+}
+
+tasks.jar {
+    manifest {
+        attributes(
+            mapOf(
+                "Implementation-Title" to project.name,
+                "Implementation-Version" to project.version
+            )
+        )
+    }
 }

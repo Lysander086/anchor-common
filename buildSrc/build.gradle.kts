@@ -5,8 +5,8 @@ plugins {
 
 repositories {
     mavenLocal()
-    gradlePluginPortal()
     mavenCentral()
+    gradlePluginPortal()
     google()
 }
 

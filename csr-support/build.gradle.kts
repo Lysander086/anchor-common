@@ -10,7 +10,6 @@ plugins {
     // kotlin-jpa is wrapped on top of no-arg. The plugin specifies @Entity, @Embeddable, and @MappedSuperclass no-arg annotations automatically.
     id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
     idea
-    kotlin("jvm")
 }
 
 
@@ -30,11 +29,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.h2database:h2:2.3.232")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-
-    // ingz: `implementation(kotlin("stdlib-jdk8"))` は、Kotlin 標準ライブラリの JDK 8 互換バージョンをプロジェクトに追加します。これにより、Kotlin の基本的な機能や拡張関数が利用可能になります。
-    //
-    //`implementation("org.hibernate:hibernate-core:6.1.5.Final")` は、Hibernate のコアライブラリをプロジェクトに追加します。Hibernate は、Java のオブジェクト関係マッピング（ORM）フレームワークであり、データベースと Java オブジェクトの間のマッピングを簡素化します。これにより、データベース操作が容易になります。
-    implementation(kotlin("stdlib-jdk8"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VersionManagement.Kotlin.version}")
     implementation("org.hibernate:hibernate-core:6.1.5.Final")
 }
 
