@@ -27,17 +27,11 @@ version = "1.0.0"
 
 val libraryName = "anchor-common"
 
-publishing {
-    publications {
-        create<MavenPublication>(libraryName) {
-            from(components["java"])
-        }
-    }
-
-    repositories {
-        mavenLocal()
-    }
-}
+//publishing {
+//    repositories {
+//        mavenLocal()
+//    }
+//}
 
 kotlin {
     jvmToolchain(17)

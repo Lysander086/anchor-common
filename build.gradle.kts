@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("org.jetbrains.kotlin.jvm")
-    `publishing-conventions`
+//    `publishing-conventions`
 }
 
 allprojects {
@@ -27,13 +27,15 @@ allprojects {
 }
 
 subprojects {
-    apply(plugin = "publishing-conventions")
+//    apply(plugin = "publishing-conventions")
 
     dependencies {
         compileOnly("org.projectlombok:lombok:1.18.36")
         testImplementation("org.junit:junit-bom:5.7.2")
         testImplementation("org.junit.jupiter:junit-jupiter-api")
     }
+
+
 }
 
 tasks.named("build") {
@@ -50,3 +52,5 @@ tasks.jar {
         )
     }
 }
+
+// ingz build タスクにはルート モジュールのみが含まれますが、サブモジュールは公開されません。
