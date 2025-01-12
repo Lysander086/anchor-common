@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     id("org.springframework.boot") version VersionManagement.springboot
     // help manage the version of the spring-related dependencies
@@ -21,6 +18,8 @@ tasks.getByName("bootJar") {
 tasks.getByName<Jar>("jar") {
     enabled = true
 }
+
+// ingz 名前を設定する
 
 dependencies {
     implementation(kotlin("reflect"))

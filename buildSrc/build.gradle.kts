@@ -6,7 +6,7 @@ plugins {
 repositories {
     mavenLocal()
     mavenCentral()
-    gradlePluginPortal()
+    gradlePluginPortal()  // so that external plugins can be resolved in dependencies section
     google()
 }
 

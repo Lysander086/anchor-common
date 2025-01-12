@@ -1,5 +1,6 @@
+// C:\Users\Lysander\Desktop\win_dev\learning\sample_convention_plugins-kotlin-dsl\buildSrc\src\main\kotlin\myproject.library-conventions.gradle.kts
+
 plugins {
-    kotlin("jvm")
     `java-library`
     `maven-publish`
 }
@@ -9,30 +10,42 @@ java {
     withSourcesJar()
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    gradlePluginPortal()
-    google()
-}
-
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20")
     implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.9.0")
 }
 
-group = "org.anchor"
-version = "1.0.0"
+val groupName = "org.anchor"
+val versionVal = "1.0.0"
 
 
-val libraryName = "anchor-common"
+val baseName = "anchor-common"
 
-//publishing {
-//    repositories {
-//        mavenLocal()
-//    }
-//}
+val projectName = project.name
 
-kotlin {
-    jvmToolchain(17)
+publishing {
+
+    tasks.withType<PublishToMavenRepository>().configureEach {
+        doFirst {
+            println("Starting publication to Maven repository...")
+        }
+    }
+
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = groupName
+            artifactId = baseName+"_" + project.name
+            version =  versionVal
+
+            from(components["java"])
+        }
+    }
+
+    tasks.withType<PublishToMavenRepository>().configureEach {
+        doLast {
+            println("Publication to Maven repository completed.")
+        }
+    }
 }
+
+
