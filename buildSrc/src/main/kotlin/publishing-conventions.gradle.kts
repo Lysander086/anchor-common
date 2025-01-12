@@ -18,7 +18,6 @@ dependencies {
 val groupName = "org.anchor"
 val versionVal = "1.0.0"
 
-
 val baseName = "anchor-common"
 
 val projectName = project.name

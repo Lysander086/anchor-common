@@ -1,1 +1,1 @@
-rootProject.name = 'anchor-common:csr-support'
+rootProject.name = 'csr-support'

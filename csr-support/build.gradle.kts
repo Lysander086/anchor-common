@@ -19,8 +19,6 @@ tasks.getByName<Jar>("jar") {
     enabled = true
 }
 
-// ingz 名前を設定する
-
 dependencies {
     implementation(kotlin("reflect"))
     api("org.springframework.boot:spring-boot-starter-data-jpa")
