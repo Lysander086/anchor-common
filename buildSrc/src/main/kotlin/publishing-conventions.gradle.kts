@@ -1,5 +1,3 @@
-// C:\Users\Lysander\Desktop\win_dev\learning\sample_convention_plugins-kotlin-dsl\buildSrc\src\main\kotlin\myproject.library-conventions.gradle.kts
-
 plugins {
     `java-library`
     `maven-publish`
