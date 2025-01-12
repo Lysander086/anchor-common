@@ -13,6 +13,5 @@ class BaseEntityTest {
 
         // Assert
         assertEquals("test", baseEntity.value)
-        println("test complete")
     }
 }

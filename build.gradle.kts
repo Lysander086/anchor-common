@@ -1,33 +1,30 @@
 plugins {
     id("org.jetbrains.kotlin.jvm")
-    id("jvm-conventions")
-    id("publishing-conventions")
-//    / delz add detekt later
-//    id("io.gitlab.arturbosch.detekt") version "1.21.0"
 }
 
 allprojects {
-    group = "org.anchor"
-    version = "0.0.1-SNAPSHOT"
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-    }
+    apply(plugin = "test-convention")
+    apply(plugin = "dependency-convention")
 }
-subprojects {
-    apply(plugin = "jvm-conventions")
-    apply(plugin = "publishing-conventions")
 
-    tasks.register<Wrapper>("wrapper") {
-        gradleVersion = GradleVersion.current().version
-    }
+subprojects {
+    apply(plugin = "java-library")
+    apply(plugin = "publishing-conventions")
 
     dependencies {
         compileOnly("org.projectlombok:lombok:1.18.36")
-        testImplementation("org.junit:junit-bom:5.7.2")
-        testImplementation("org.junit.jupiter:junit-jupiter-api")
     }
-
 }
+
+
+tasks.jar {
+    manifest {
+        attributes(
+            mapOf(
+                "Implementation-Title" to project.name,
+                "Implementation-Version" to project.version
+            )
+        )
+    }
+}
+

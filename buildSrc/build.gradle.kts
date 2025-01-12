@@ -5,8 +5,8 @@ plugins {
 
 repositories {
     mavenLocal()
-    gradlePluginPortal()
     mavenCentral()
+    gradlePluginPortal()  // so that external plugins can be resolved in dependencies section
     google()
 }
 
@@ -14,7 +14,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20")
     implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.9.0")
 }
-
 
 kotlin {
     jvmToolchain(17)

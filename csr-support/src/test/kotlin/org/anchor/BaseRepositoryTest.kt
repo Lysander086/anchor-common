@@ -16,7 +16,6 @@ class BaseRepositoryTest {
 
     private lateinit var entity: TestEntity
 
-    // ingz: すべてのテストにパスします。
     @BeforeEach
     fun setUp() {
         entity = TestEntity("test")
