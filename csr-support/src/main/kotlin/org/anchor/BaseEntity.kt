@@ -21,7 +21,7 @@ abstract class BaseEntity<Long> : Persistable<Long> {
     override fun getId(): Long? = id
 
     @Version
-    private val version: Long? = null
+    private val version: Int? = null
 
     @field:CreationTimestamp
     val createdAt: Instant? = null
