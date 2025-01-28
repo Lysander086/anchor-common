@@ -27,7 +27,6 @@ open class BaseService<ID : Serializable, M : BaseEntity<ID>>
 
     fun deleteAllInBatch(entities: Iterable<M>) = repositorySupport.deleteAllInBatch(entities)
 
-    // ingz https://chatgpt.com/c/67978cca-ba54-800f-923e-da2ba653e90b
     fun delete(m: M) = repositorySupport.delete(m)
 
     fun deleteAll() = repositorySupport.deleteAll()
