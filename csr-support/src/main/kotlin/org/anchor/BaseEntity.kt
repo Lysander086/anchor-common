@@ -7,27 +7,16 @@ import jakarta.persistence.MappedSuperclass
 import jakarta.persistence.Version
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.hibernate.annotations.CreationTimestamp
-import org.hibernate.annotations.UpdateTimestamp
 import org.springframework.data.domain.Persistable
-import java.time.Instant
 
 @MappedSuperclass
 abstract class BaseEntity<Long> : Persistable<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private var id: Long? = null
-
     override fun getId(): Long? = id
-
     @Version
     private val version: Int? = null
-
-    @field:CreationTimestamp
-    val createdAt: Instant? = null
-
-    @field:UpdateTimestamp
-    val updatedAt: Instant? = null
 
     override fun isNew(): Boolean {
         return version == null
