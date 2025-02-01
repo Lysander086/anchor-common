@@ -6,10 +6,10 @@ import org.springframework.data.domain.Sort
 import org.springframework.data.jpa.repository.JpaRepository
 import java.io.Serializable
 
-open class BaseService<ID : Serializable, M : BaseEntity<ID>>
+open class BaseService<ID : Serializable, M : BaseEntity>
     (private val repositorySupport: JpaRepository<M, ID>) {
 
-    fun save(m: M): M = this.repositorySupport.save(m)
+    fun upsert(m: M): M = this.repositorySupport.save(m)
 
     fun saveAndFlush(m: M): M = repositorySupport.saveAndFlush(m)
 
@@ -22,8 +22,6 @@ open class BaseService<ID : Serializable, M : BaseEntity<ID>>
     fun findAll(sort: Sort): List<M> = repositorySupport.findAll(sort)
 
     fun findAll(pageable: Pageable): Page<M> = repositorySupport.findAll(pageable)
-
-    fun update(m: M): M = repositorySupport.save(m)
 
     fun deleteAllInBatch(entities: Iterable<M>) = repositorySupport.deleteAllInBatch(entities)
 

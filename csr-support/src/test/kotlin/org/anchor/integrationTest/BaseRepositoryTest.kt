@@ -1,4 +1,4 @@
-package org.anchor
+package org.anchor.integrationTest
 
 import org.anchor.impl.TestEntity
 import org.anchor.impl.TestRepository

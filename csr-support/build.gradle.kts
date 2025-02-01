@@ -6,7 +6,6 @@ plugins {
     kotlin("plugin.spring") version VersionManagement.springPlugin
     // kotlin-jpa is wrapped on top of no-arg. The plugin specifies @Entity, @Embeddable, and @MappedSuperclass no-arg annotations automatically.
     id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
-    idea
 }
 
 
@@ -18,16 +17,23 @@ tasks.getByName("bootJar") {
 tasks.getByName<Jar>("jar") {
     enabled = true
 }
-
 dependencies {
+    // Kotlin
     implementation(kotlin("reflect"))
-    api("org.springframework.boot:spring-boot-starter-data-jpa")
-    api("jakarta.persistence:jakarta.persistence-api:3.2.0")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.h2database:h2:2.3.232")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VersionManagement.Kotlin.version}")
-    implementation("org.hibernate:hibernate-core:6.1.5.Final")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+
+    // Spring Boot
+    api("org.springframework.boot:spring-boot-starter-data-jpa")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.data:spring-data-commons")
+
+    // Jakarta Persistence
+    api("jakarta.persistence:jakarta.persistence-api:3.2.0")
+
+    // Hibernate
+    testImplementation("com.h2database:h2:2.3.232")
+    testImplementation("org.hibernate:hibernate-core:6.1.5.Final")
 }
 
 
