@@ -10,7 +10,7 @@ import kotlinx.serialization.json.Json
 import org.springframework.data.domain.Persistable
 
 @MappedSuperclass
-abstract class BaseEntity<Long> : Persistable<Long> {
+abstract class BaseEntity : Persistable<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private var id: Long? = null
