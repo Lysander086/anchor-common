@@ -1,0 +1,9 @@
+CREATE SCHEMA IF NOT EXISTS test_schema;
+
+
+CREATE TABLE IF NOT EXISTS test_schema.TEST_ENTITY
+(
+    id      BIGINT AUTO_INCREMENT PRIMARY KEY,
+    `value` VARCHAR(255) NOT NULL,
+    version INT          NOT NULL
+);

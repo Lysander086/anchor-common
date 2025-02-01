@@ -6,7 +6,6 @@ plugins {
     kotlin("plugin.spring") version VersionManagement.springPlugin
     // kotlin-jpa is wrapped on top of no-arg. The plugin specifies @Entity, @Embeddable, and @MappedSuperclass no-arg annotations automatically.
     id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
-    idea
 }
 
 
