@@ -5,4 +5,4 @@ import org.springframework.data.repository.NoRepositoryBean
 import java.io.Serializable
 
 @NoRepositoryBean
-interface BaseRepository<T : BaseEntity<ID>, ID : Serializable> : JpaRepository<T, Long>
+interface BaseRepository<T : BaseEntity, ID : Serializable> : JpaRepository<T, Long>

@@ -8,10 +8,10 @@ class BaseEntityTest {
 
     @Test
     fun `should correctly initialize BaseEntity`() {
-        // Act
-        val baseEntity = TestEntity("test" )
+        // Arrange
+        val entity = TestEntity("test")
 
         // Assert
-        assertEquals("test", baseEntity.value)
+        assertEquals("test", entity.text)
     }
 }

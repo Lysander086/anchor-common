@@ -6,7 +6,7 @@ import org.springframework.data.domain.Sort
 import org.springframework.data.jpa.repository.JpaRepository
 import java.io.Serializable
 
-open class BaseService<ID : Serializable, M : BaseEntity<ID>>
+open class BaseService<ID : Serializable, M : BaseEntity>
     (private val repositorySupport: JpaRepository<M, ID>) {
 
     fun upsert(m: M): M = this.repositorySupport.save(m)

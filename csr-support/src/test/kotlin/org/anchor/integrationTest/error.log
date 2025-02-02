@@ -1,7 +1,7 @@
-2025-02-01T17:22:42.209+09:00  WARN 17968 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 42104, SQLState: 42S04
-2025-02-01T17:22:42.209+09:00 ERROR 17968 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : Table "TEST_ENTITY" not found (this database is empty); SQL statement:
+2025-02-01T18:55:12.035+09:00  WARN 29212 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 42104, SQLState: 42S04
+2025-02-01T18:55:12.036+09:00 ERROR 29212 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : Table "TEST_ENTITY" not found (this database is empty); SQL statement:
 insert into test_entity (id, value, version) values (default, ?, ?) [42104-232]
-2025-02-01T17:22:42.263+09:00 ERROR 17968 --- [    Test worker] org.hibernate.AssertionFailure           : HHH000099: an assertion failure occurred (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in org.anchor.impl.TestEntity entry (don't flush the Session after an exception occurs)
+2025-02-01T18:55:12.089+09:00 ERROR 29212 --- [    Test worker] org.hibernate.AssertionFailure           : HHH000099: an assertion failure occurred (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in org.anchor.impl.TestEntity entry (don't flush the Session after an exception occurs)
 
 could not prepare statement; SQL [insert into test_entity (id, value, version) values (default, ?, ?)]
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [insert into test_entity (id, value, version) values (default, ?, ?)]
@@ -19,9 +19,9 @@ org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepa
 	at org.springframework.data.repository.core.support.MethodInvocationValidator.invoke(MethodInvocationValidator.java:94)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
-	at jdk.proxy3/jdk.proxy3.$Proxy107.saveAll(Unknown Source)
-	at org.anchor.BaseService.saveAll(BaseService.kt:16)
-	at org.anchor.integrationTest.BaseServiceIntegrationTest.should return paginated entities(BaseServiceTest.kt:86)
+	at jdk.proxy3/jdk.proxy3.$Proxy107.save(Unknown Source)
+	at org.anchor.BaseService.upsert(BaseService.kt:12)
+	at org.anchor.integrationTest.BaseServiceIntegrationTest.should save entity successfully(BaseServiceTest.kt:40)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -155,7 +155,7 @@ org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepa
 		at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 		at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
 		at jdk.proxy3/jdk.proxy3.$Proxy107.deleteAll(Unknown Source)
-		at org.anchor.integrationTest.BaseServiceIntegrationTest.tearDown(BaseServiceTest.kt:35)
+		at org.anchor.integrationTest.BaseServiceIntegrationTest.tearDown(BaseServiceTest.kt:34)
 		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -217,7 +217,6 @@ Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statem
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:307)
 	at jdk.proxy3/jdk.proxy3.$Proxy102.persist(Unknown Source)
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:610)
-	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.saveAll(SimpleJpaRepository.java:636)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -264,7 +263,7 @@ insert into test_entity (id, value, version) values (default, ?, ?) [42104-232]
 	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
 	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$2.doPrepare(StatementPreparerImpl.java:109)
 	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176)
-	... 144 more
+	... 143 more
 
 
 could not prepare statement
@@ -300,7 +299,6 @@ org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at app//org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:307)
 	at app/jdk.proxy3/jdk.proxy3.$Proxy102.persist(Unknown Source)
 	at app//org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:610)
-	at app//org.springframework.data.jpa.repository.support.SimpleJpaRepository.saveAll(SimpleJpaRepository.java:636)
 	at java.base@17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base@17/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -330,9 +328,9 @@ org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at app//org.springframework.data.repository.core.support.MethodInvocationValidator.invoke(MethodInvocationValidator.java:94)
 	at app//org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at app//org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
-	at app/jdk.proxy3/jdk.proxy3.$Proxy107.saveAll(Unknown Source)
-	at app//org.anchor.BaseService.saveAll(BaseService.kt:16)
-	at app//org.anchor.integrationTest.BaseServiceIntegrationTest.should return paginated entities(BaseServiceTest.kt:86)
+	at app/jdk.proxy3/jdk.proxy3.$Proxy107.save(Unknown Source)
+	at app//org.anchor.BaseService.upsert(BaseService.kt:12)
+	at app//org.anchor.integrationTest.BaseServiceIntegrationTest.should save entity successfully(BaseServiceTest.kt:40)
 	at java.base@17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@17/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base@17/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -441,5 +439,5 @@ insert into test_entity (id, value, version) values (default, ?, ?) [42104-232]
 	at app//com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
 	at app//org.hibernate.engine.jdbc.internal.StatementPreparerImpl$2.doPrepare(StatementPreparerImpl.java:109)
 	at app//org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176)
-	... 144 more
+	... 143 more
 
