@@ -1,11 +1,12 @@
 package org.anchor
 
-import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringBootLifecycleEventApplication
+// delz internalを意味を確認する　
+// このファイルはテストのディレクトリに移行する必要があります
+internal class SpringBootLifecycleEventApplication
 
 fun main(args: Array<String>) {
     runApplication<SpringBootLifecycleEventApplication>(*args)
