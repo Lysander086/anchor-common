@@ -18,8 +18,6 @@ val versionVal = "1.0.1"
 
 val baseName = "anchor-common"
 
-val projectName = project.name
-
 publishing {
 
     tasks.withType<PublishToMavenRepository>().configureEach {
