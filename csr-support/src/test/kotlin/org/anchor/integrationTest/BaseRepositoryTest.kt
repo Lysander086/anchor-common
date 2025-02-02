@@ -26,7 +26,6 @@ class BaseRepositoryTest {
         repository.deleteAll()
     }
 
-
     @Test
     fun `should save and retrieve entity`() {
 
