@@ -1,6 +1,6 @@
 package org.anchor.integrationTest
 
-import org.anchor.impl.TestEntity
+import org.anchor.impl.TestAuditableBaseEntity
 import org.anchor.impl.TestRepository
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertNotNull
@@ -14,11 +14,11 @@ class BaseRepositoryTest {
     @Autowired
     private lateinit var repository: TestRepository
 
-    private lateinit var entity: TestEntity
+    private lateinit var entity: TestAuditableBaseEntity
 
     @BeforeEach
     fun setUp() {
-        entity = TestEntity("test")
+        entity = TestAuditableBaseEntity("test")
     }
 
     @AfterEach

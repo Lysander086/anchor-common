@@ -4,4 +4,4 @@ import org.anchor.BaseRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface TestRepository : BaseRepository<TestEntity, Long>
+interface TestRepository : BaseRepository<TestAuditableBaseEntity, Long>

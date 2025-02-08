@@ -1,11 +1,11 @@
 plugins {
-    id("org.springframework.boot") version VersionManagement.springboot
+    id("org.springframework.boot") version VersionManagement.SPRINGBOOT
     // help manage the version of the spring-related dependencies
-    id("io.spring.dependency-management") version VersionManagement.springDependencyManagement
+    id("io.spring.dependency-management") version VersionManagement.SPRING_DEPENDENCY_MANAGEMENT
     // Kotlin has classes and their members final by default, which makes it inconvenient to use frameworks and libraries such as Spring AOP that require classes to be open. You can enable the kotlin-spring compiler plugin instead of specifying Spring annotations manually, to mark the class as open without explicitly specifying it.
-    kotlin("plugin.spring") version VersionManagement.springPlugin
+    kotlin("plugin.spring") version VersionManagement.SPRING_PLUGIN
     // kotlin-jpa is wrapped on top of no-arg. The plugin specifies @Entity, @Embeddable, and @MappedSuperclass no-arg annotations automatically.
-    id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.version
+    id("org.jetbrains.kotlin.plugin.jpa") version VersionManagement.Kotlin.VERSION
 }
 
 
@@ -20,7 +20,7 @@ tasks.getByName<Jar>("jar") {
 dependencies {
     // Kotlin
     implementation(kotlin("reflect"))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VersionManagement.Kotlin.version}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VersionManagement.Kotlin.VERSION}")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
     // Spring Boot

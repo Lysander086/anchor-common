@@ -1,18 +1,9 @@
-import org.gradle.api.JavaVersion
-
 object VersionManagement {
-    const val springboot = "3.0.0"
-    const val springDependencyManagement = "1.1.4"
-    const val springPlugin = "2.0.20"
-
-
-    object Java {
-        const val jvmTarget = "17"
-        val version = JavaVersion.VERSION_17
-    }
-
+    const val SPRINGBOOT = "3.4.2"
+    const val SPRING_DEPENDENCY_MANAGEMENT = "1.1.7"
+    const val SPRING_PLUGIN = "2.0.20"
     object Kotlin {
-        const val version = "2.0.20"
+        const val VERSION = "2.0.20"
     }
 }
 
