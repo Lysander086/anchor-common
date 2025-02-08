@@ -1,14 +1,15 @@
 package org.anchor
 
+import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
 import jakarta.persistence.MappedSuperclass
-import jakarta.persistence.Version
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.springframework.data.domain.Persistable
 
+
+@Entity
 @MappedSuperclass
 abstract class BaseEntity : Persistable<Long> {
     @Id

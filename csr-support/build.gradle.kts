@@ -27,9 +27,8 @@ dependencies {
     api("org.springframework.boot:spring-boot-starter-data-jpa")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.data:spring-data-commons")
+    api("org.springframework.boot:spring-boot-starter-validation")
 
-    // Jakarta Persistence
-    api("jakarta.persistence:jakarta.persistence-api:3.2.0")
 
     // Hibernate
     testImplementation("com.h2database:h2:2.3.232")
