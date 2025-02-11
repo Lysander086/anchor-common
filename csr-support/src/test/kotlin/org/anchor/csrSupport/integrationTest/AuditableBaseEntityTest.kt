@@ -1,6 +1,6 @@
-package org.anchor.integrationTest
+package org.anchor.csrSupport.integrationTest
 
-import org.anchor.impl.TestAuditableBaseEntity
+import org.anchor.csrSupport.impl.TestAuditableBaseEntity
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

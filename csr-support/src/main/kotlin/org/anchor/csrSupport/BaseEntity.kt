@@ -1,4 +1,4 @@
-package org.anchor
+package org.anchor.csrSupport
 
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType

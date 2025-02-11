@@ -1,10 +1,9 @@
-package org.anchor
+package org.anchor.csrSupport
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-// delz internalを意味を確認する　
 // このファイルはテストのディレクトリに移行する必要があります
 internal class SpringBootLifecycleEventApplication
 

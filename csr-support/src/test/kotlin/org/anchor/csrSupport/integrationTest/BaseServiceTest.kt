@@ -1,8 +1,8 @@
-package org.anchor.integrationTest
+package org.anchor.csrSupport.integrationTest
 
-import org.anchor.BaseService
-import org.anchor.impl.TestAuditableBaseEntity
-import org.anchor.impl.TestRepository
+import org.anchor.csrSupport.BaseService
+import org.anchor.csrSupport.impl.TestAuditableBaseEntity
+import org.anchor.csrSupport.impl.TestRepository
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

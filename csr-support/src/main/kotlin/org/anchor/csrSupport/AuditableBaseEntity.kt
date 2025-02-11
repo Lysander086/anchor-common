@@ -1,4 +1,4 @@
-package org.anchor
+package org.anchor.csrSupport
 
 import jakarta.persistence.MappedSuperclass
 import org.hibernate.annotations.CreationTimestamp
