@@ -4,8 +4,8 @@ plugins {
 }
 
 repositories {
-    mavenCentral() mavenLocal ()
-
+    mavenCentral()
+    mavenLocal()
     gradlePluginPortal()  // so that external plugins can be resolved in dependencies section
     google()
 }
